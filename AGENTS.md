@@ -7,3 +7,5 @@ This repository is a visual starter, not a ledger. Preserve the clear Merit-insp
 - Work with the customer's accountant to define ledger entries, accounting periods, invoices, tax rules, and audit history. Use isolated data for migrations and calculation tests.
 - Imported projects should use their own Cloudflare account, Worker name, resources, and secrets. Never commit financial records or credentials to this public upstream; retain Git history for future template merges.
 - Run npm run build, check JavaScript syntax, and inspect desktop/mobile layouts and invoice filtering. Add meaningful accounting and authorization tests when real functionality is implemented.
+
+This standalone version uses Cloudflare Access. Production must fail closed without its issuer, audience and application origin. Local sample tests run with PREVIEW_MODE=true; signed-token tests cover the production gate. Never enable preview mode for customer data or live email.

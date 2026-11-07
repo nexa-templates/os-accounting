@@ -1,36 +1,18 @@
-# Nexa Accounting
+# Accounting
 
-The Nexa Templates organization develops this template and publishes its Cloudflare Worker as a public **Preview**. Figures are fictional and actions simulate the interface; no financial records or bank connections are used. GitHub Pages is not used. Build the customer's real accounting workflows in their own project and account.
+Visual starter; functional accounting/payment workflows remain planned.
 
-A Merit-inspired accounting overview: blue navigation, financial totals, revenue and expense charts, invoice tables, and bank accounts. Original Nexa interface; no Merit assets, code, or integrations are included.
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/nexa-templates/os-accounting)
 
-[Live preview](https://nexa-accounting.nexa-templates.workers.dev/) · [Use with Nexa](https://admin.nexaintel.work)
+## Run and deploy
 
-![Accounting preview](preview.webp)
+Install dependencies using the included lockfile, run `npm run build`, then `npm run deploy`. Wrangler provisions the declared resources. No Nexa account or API key is required for the default configuration.
 
-This is a **visual template with fictional sample data**, not accounting software. Invoice status filters work locally. Other controls explain that they are previews. Figures and tax deadlines are illustrative; there is no ledger, tax calculation, bank connection, persistence, authentication, or external asset dependency.
+## Access
 
-## Run and build
+Protect the application hostname with Cloudflare Access. Configure `ACCESS_ISSUER`, `ACCESS_AUD` and `APP_ORIGIN`. The Worker also verifies signed tokens and rejects alternate hostnames.
 
-Use Node.js 22 or newer. No dependency installation is needed.
+`PREVIEW_MODE=true` is only for an isolated public sample deployment with no customer data or live services. Real installations use `false`.
+## Source
 
-```sh
-npm run dev          # http://localhost:3000; PORT overrides the port
-npm run build        # static site in dist/
-```
-
-Edit `index.html`, `styles.css`, and `app.js`. Figures, invoices, and chart bars are sample markup in `index.html`. Push to `main` to update the published Worker preview through Nexa Build & deploy.
-
-## Make it yours
-
-Choose **Use template** in Nexa, or import `https://github.com/nexa-templates/accounting.git` as a new project. Preserve upstream Git history for updates. Set a unique Worker name in `wrangler.jsonc` and deploy using the project's Cloudflare connection. No account IDs, secrets, or bindings are included.
-
-In Nexa **Build & deploy**, select the connected Worker and production branch, use `/` as the root, `npm ci` to install, `npm run build` to build, and `npx --no-install wrangler deploy --name "$NEXA_WORKER_NAME"` to deploy. Enable automatic deployments. Run the initial build, follow its exact commit to success, and verify the saved deployment and Visit URL. Later production-branch pushes use this same pipeline. The public preview needs project sign-in disabled; it contains fictional data only.
-
-Define the ledger, chart of accounts, invoice lifecycle, reconciliation, audit trail, access control, and reporting with an accountant before implementing real functionality. Validate local tax rules and migration balances. Demo totals do not form a reconciled ledger. There are no database migrations or integrations yet.
-
-## Releases
-
-- **0.1.0** — Responsive financial overview, local invoice filters, static build, and Cloudflare assets configuration.
-
-MIT licensed. See `LICENSE`.
+Adapted from [accounting](https://github.com/nexa-templates/accounting/tree/9c8d9724c347069ec725a42cde18856e5cc32853) at `9c8d9724c347069ec725a42cde18856e5cc32853`. Original license files are retained. These source files are ordinary Wrangler applications; no Nexa manifest is required.
